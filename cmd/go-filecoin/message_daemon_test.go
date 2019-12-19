@@ -5,6 +5,7 @@ import (
 	"strconv"
 	"strings"
 	"testing"
+	"fmt"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -126,6 +127,7 @@ func TestMessageSendBlockGasLimit(t *testing.T) {
 	result := struct{ Messages types.TxMeta }{}
 
 	t.Run("when the gas limit is above the block limit, the message fails", func(t *testing.T) {
+		fmt.Printf("WE ARE HERE WE ARE HERE WE ARE HERE\n")
 		d.RunFail("block gas limit",
 			"message", "send",
 			"--gas-price", "1", "--gas-limit", doubleTheBlockGasLimit,
